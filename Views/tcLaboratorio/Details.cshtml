@@ -1,0 +1,50 @@
+﻿@model ClinicaMVC.Models.tcLaboratorio
+
+@{
+    Layout = "~/Views/Shared/_VistaCatalogo.cshtml";
+    ViewBag.Title = "Detalles";
+}
+
+<div class="portlet light portlet-fit">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-book-open"></i>
+            <span class="caption-subject sbold uppercase">Detalles de Laboratorio</span>
+        </div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided">
+                @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-transparent blue btn-outline btn-circle btn-sm" })
+            </div>
+            <div class="btn-group btn-group-devided">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.tcLaboratorioID }, new { @class = "btn btn-transparent blue btn-outline btn-circle btn-sm" })
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Nombre de Laboratorio</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Nombre)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Descripcion de Laboratorio</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Descripcion)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Fecha de Creacion</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.FechaCreacion)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

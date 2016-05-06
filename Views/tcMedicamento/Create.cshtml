@@ -1,0 +1,110 @@
+﻿@model ClinicaMVC.Models.tcMedicamento
+
+@{
+    Layout = "~/Views/Shared/_VistaCatalogo.cshtml";
+    ViewBag.Title = "Crear";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="portlet light portlet-fit">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-chemistry"></i>
+                <span class="caption-subject sbold uppercase">Crear Medicamento</span>
+            </div>
+            <div class="actions">
+                @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-transparent blue btn-outline btn-circle btn-sm" })
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form role="form">
+                <div class="form-body">
+                    <div class="md-checkbox pull-right">
+                        @if (ViewBag.CheckBox != null)
+                        {
+                            @Html.CheckBox("checkbox", true, new { @id = "checkbox1", @class = "md-check" })
+                        }
+                        else {
+                            @Html.CheckBox("checkbox", false, new { @id = "checkbox1", @class = "md-check" })
+                        }
+                        <label for="checkbox1">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            Multiples Ingresos
+                        </label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">                        
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @id = "nombreMedicamento" } })
+                        <label for="nombreEstado">Nombre de medicamento</label>
+                        <span class="help-block">@Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })</span>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">                        
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @id = "descripcionMedicamento" } })
+                        <label for="descripcionEstado">Descripcion de medicamento</label>
+                        <span class="help-block">@Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })</span>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">                       
+                        @Html.EditorFor(model => model.Presentacion, new { htmlAttributes = new { @class = "form-control", @id = "presentacionMedicamento" } })
+                        <label for="descripcionEstado">Presentacion(liquido,patillas,etc)</label>
+                        <span class="help-block">@Html.ValidationMessageFor(model => model.Presentacion, "", new { @class = "text-danger" })</span>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">                        
+                        @Html.EditorFor(model => model.Medida, new { htmlAttributes = new { @class = "form-control", @id = "medidaMedicamento" } })
+                        <label for="descripcionEstado">Medida(cantidad numerica)</label>
+                        <span class="help-block">@Html.ValidationMessageFor(model => model.Medida, "", new { @class = "text-danger" })</span>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        @Html.DropDownList("tcUnidadMedidaID", null, htmlAttributes: new { @class = "form-control" })
+                        <label for="descripcionEstado">Unidad de medida</label>
+                        @Html.ValidationMessageFor(model => model.tcUnidadMedidaID, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">                        
+                        @Html.EditorFor(model => model.AlertaMinimo, new { htmlAttributes = new { @class = "form-control", @id = "alertaminimoMedicamento" } })
+                        <label for="descripcionEstado">Alerta de Minimo</label>
+                        <span class="help-block">@Html.ValidationMessageFor(model => model.AlertaMinimo, "", new { @class = "text-danger" })</span>
+                    </div>                    
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        @Html.DropDownList("EstadoID", null, htmlAttributes: new { @class = "form-control" })
+                        <label for="descripcionEstado">Estado</label>
+                        @Html.ValidationMessageFor(model => model.EstadoID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-actions noborder">
+                    <button type="submit" class="btn blue">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @if (ViewBag.Mensaje != null)
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "positionClass": "toast-top-full-width",
+                "onclick": null,
+                "showDuration": "5000",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut",
+            }
+            toastr.success('@(ViewBag.Mensaje)', 'EXITO');
+        });
+        </script>
+    }
+
+}

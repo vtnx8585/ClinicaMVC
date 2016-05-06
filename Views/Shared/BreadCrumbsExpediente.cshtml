@@ -1,0 +1,66 @@
+﻿@{
+    string url = Request.Url.AbsoluteUri;
+    string tipoPagina = "";
+}
+<div class="breadcrumbs">
+    @{string tituloCatalogo = "ERROR! BREADCRUMB"; }
+
+    <!--****Recordatorio**** Refactorizar esta partialPage con un controlador para manejar los tipos de pagina de manera eficiente y no repetir codigo-->
+    <!--****Podria crearse una clase que tenga los atributos url.contains y titulo*****-->
+    <!--COMPROBACION DE URL PARA EL BREADCRUMBS DE CATALOGOS -->
+    @if (url.Contains("tcAlergia"))
+    {
+        tituloCatalogo = "Alergias";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcMedicamento"))
+    {
+        tituloCatalogo = "Medicamentos";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcEnfermedad"))
+    {
+        tituloCatalogo = "Enfermedades";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcLaboratorio"))
+    {
+        tituloCatalogo = "Laboratorios";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcGenero"))
+    {
+        tituloCatalogo = "Generos";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcProfesion"))
+    {
+        tituloCatalogo = "Profesiones";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("tcUnidadMed"))
+    {
+        tituloCatalogo = "Unidades de Medida";
+        tipoPagina = "Catalogo";
+    }
+    @if (url.Contains("Estado"))
+    {
+        tituloCatalogo = "Estados";
+        tipoPagina = "Catalogo";
+    }
+
+    @if (tipoPagina == "Catalogo")
+    {
+        <h1>@tituloCatalogo</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Catalogos</a>
+            </li>
+            <li class="active">@tituloCatalogo</li>
+        </ol>
+    }
+
+</div>

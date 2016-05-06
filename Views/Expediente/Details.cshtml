@@ -1,0 +1,51 @@
+﻿@model ClinicaMVC.Models.Expediente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_VistaExpediente.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Expediente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PacienteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PacienteID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FotoPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FotoPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExpedienteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

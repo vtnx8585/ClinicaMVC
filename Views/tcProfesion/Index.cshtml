@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ClinicaMVC.Models.tcProfesion>
+
+@{
+    Layout = "~/Views/Shared/_VistaCatalogo.cshtml";
+    ViewBag.Title = "Catalogo";
+    Int32 count = 1;
+}
+
+<div class="portlet light portlet-fit">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-briefcase"></i>
+            <span class="caption-subject sbold uppercase">Catalogo De Profesiones</span>
+        </div>
+        <div class="actions">
+            @Html.ActionLink("Crear Nuevo", "Create", null, new { @class = "btn btn-transparent blue btn-outline btn-circle btn-sm" })
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable table-scrollable-borderless">
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr class="uppercase">
+                        <th>#</th>
+                        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th style="text-align:right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td style="text-align:right">
+                                <i class="fa fa-edit"></i> @Html.ActionLink("Editar", "Edit", new { id = item.tcProfesionID }) |
+                                <i class="fa fa-share"></i> @Html.ActionLink("Detalles", "Details", new { id = item.tcProfesionID }) |
+                                <i class="fa fa-trash"></i> @Html.ActionLink("Eliminar", "Delete", new { id = item.tcProfesionID })
+                            </td>
+                        </tr>
+                        count++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "positionClass": "toast-top-full-width",
+                "onclick": null,
+                "showDuration": "5000",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr.success('@(TempData["Mensaje"])', 'EXITO');
+        });
+        </script>
+    }
+}

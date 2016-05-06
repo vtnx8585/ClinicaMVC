@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ClinicaMVC.Models.Paciente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_VistaCatalogo.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expediente.FotoPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoCasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoCel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoCel2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoEmergencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoSangre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Profesion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expediente.FotoPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoCasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoCel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoCel2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoEmergencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoSangre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PacienteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PacienteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PacienteID })
+        </td>
+    </tr>
+}
+
+</table>

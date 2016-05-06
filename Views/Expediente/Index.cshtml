@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ClinicaMVC.Models.Expediente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_VistaExpediente.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PacienteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FotoPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PacienteID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FotoPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ExpedienteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ExpedienteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ExpedienteID })
+        </td>
+    </tr>
+}
+
+</table>

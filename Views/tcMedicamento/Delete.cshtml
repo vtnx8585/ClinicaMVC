@@ -1,0 +1,86 @@
+﻿@model ClinicaMVC.Models.tcMedicamento
+
+@{
+    Layout = "~/Views/Shared/_VistaCatalogo.cshtml";
+    ViewBag.Title = "Eliminar";
+}
+
+<div class="portlet light portlet-fit">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-chemistry"></i>
+            <span class="caption-subject sbold uppercase">Eliminar Medicamento</span>
+        </div>
+        <div class="actions">
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-transparent blue btn-outline btn-circle btn-sm" })
+        </div>
+    </div>
+    <div class="caption">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions noborder">
+                <span class="caption-subject font-red-sunglo bold uppercase">Esta seguro que desea eliminar este medicamento del catalogo?</span>
+                <button type="submit" class="btn btn-transparent blue btn-outline btn-circle btn-sm">Si</button>
+            </div>
+        }
+    </div>
+    <div class="portlet-body form">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Nombre de Medicamento</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Nombre)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Descripcion de Medicamento</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Descripcion)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>    
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Presentacion de Medicamento</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Presentacion)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>               
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Medida</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.Medida)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Unidad de Medida</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.tcUnidadMedida.Nombre)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Alerta de Minimo</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.AlertaMinimo)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>                
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="form_control_1">Fecha de Creacion</label>
+                    <div class="col-md-10">
+                        <div class="form-control form-control-static">@Html.DisplayFor(model => model.FechaCreacion)</div>
+                        <div class="form-control-focus"> </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
